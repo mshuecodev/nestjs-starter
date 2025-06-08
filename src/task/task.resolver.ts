@@ -12,7 +12,7 @@ export class TaskResolver {
   }
 
   @Query(() => Task, { nullable: true })
-  async task(@Args('id', { type: () => ID }) id: number): Promise<Task | null> {
+  async task(@Args('id', { type: () => ID }) id: string): Promise<Task | null> {
     return this.taskService.findOne(id);
   }
 
@@ -37,7 +37,7 @@ export class TaskResolver {
 
   @Mutation(() => Task, { nullable: true })
   async updateTask(
-    @Args('id', { type: () => ID }) id: number,
+    @Args('id', { type: () => ID }) id: string,
     @Args('title', { nullable: true }) title: string,
     @Args('description', { nullable: true }) description: string,
     @Args('priority', { nullable: true }) priority: number,
@@ -56,7 +56,7 @@ export class TaskResolver {
   }
 
   @Mutation(() => Task)
-  async deleteTask(@Args('id', { type: () => ID }) id: number) {
+  async deleteTask(@Args('id', { type: () => ID }) id: string) {
     return this.taskService.remove(id);
   }
 }
