@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsOptional, IsString, IsBoolean } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsBoolean,
+  IsInt,
+  IsDateString,
+} from 'class-validator';
 
 export class CreateTaskDto {
   @IsString()
@@ -8,6 +15,18 @@ export class CreateTaskDto {
   @IsString()
   @IsOptional()
   description?: string;
+
+  @IsDateString()
+  @IsOptional()
+  dueDate?: Date;
+
+  @IsInt()
+  @IsOptional()
+  priority?: number;
+
+  @IsString()
+  @IsOptional()
+  status?: string;
 
   @IsBoolean()
   @IsOptional()
@@ -22,6 +41,18 @@ export class UpdateTaskDto {
   @IsString()
   @IsOptional()
   description?: string;
+
+  @IsDateString()
+  @IsOptional()
+  dueDate?: Date;
+
+  @IsInt()
+  @IsOptional()
+  priority?: number;
+
+  @IsString()
+  @IsOptional()
+  status?: string;
 
   @IsBoolean()
   @IsOptional()

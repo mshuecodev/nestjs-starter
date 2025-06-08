@@ -33,3 +33,10 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## DB does not exist
+
+```bash
+$ npx prisma db push
+
+```

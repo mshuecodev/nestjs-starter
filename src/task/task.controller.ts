@@ -17,17 +17,17 @@ export class TaskController {
   }
 
   @Get(':id')
-  async getTaskById(@Param('id') id: number) {
+  async getTaskById(@Param('id') id: string) {
     return this.taskService.getTaskById(id);
   }
 
   @Patch(':id')
-  async updateTask(@Param('id') id: number, updateTaskDto: UpdateTaskDto) {
+  async updateTask(@Param('id') id: string, updateTaskDto: UpdateTaskDto) {
     return this.taskService.updateTask(id, updateTaskDto);
   }
 
   @Delete(':id')
-  async deleteTask(@Param('id') id: number) {
+  async deleteTask(@Param('id') id: string) {
     return this.taskService.deleteTask(id);
   }
 }
