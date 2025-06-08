@@ -8,26 +8,26 @@ export class TaskController {
 
   @Post()
   async createTask(createTaskDto: CreateTaskDto) {
-    return this.taskService.createTask(createTaskDto);
+    return this.taskService.create(createTaskDto);
   }
 
   @Get()
   async getAllTasks() {
-    return this.taskService.getAllTasks();
+    return this.taskService.findAll();
   }
 
   @Get(':id')
   async getTaskById(@Param('id') id: number) {
-    return this.taskService.getTaskById(id);
+    return this.taskService.findOne(id);
   }
 
   @Patch(':id')
   async updateTask(@Param('id') id: number, updateTaskDto: UpdateTaskDto) {
-    return this.taskService.updateTask(id, updateTaskDto);
+    return this.taskService.update(id, updateTaskDto);
   }
 
   @Delete(':id')
   async deleteTask(@Param('id') id: number) {
-    return this.taskService.deleteTask(id);
+    return this.taskService.remove(id);
   }
 }
